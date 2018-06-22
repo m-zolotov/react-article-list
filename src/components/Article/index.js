@@ -1,10 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import CommentList from '../CommentList';
+import toggleOpen from '../../decorators/toggleOpen';
+import CommentList from '../CommentList/index';
 
 import './style.css';
 
-export default class Article extends Component {
+class Article extends Component {
     static propTypes = {
         article: PropTypes.shape({
             id: PropTypes.string.isRequired,
@@ -14,22 +15,9 @@ export default class Article extends Component {
         }).isRequired
     };
 
-    constructor(props){
-        super(props);
-
-        this.state = {
-            isOpen: false,
-        }
-    };
-    toggleOpen = (ev) => {
-        ev.preventDefault();
-        this.setState({
-            isOpen: !this.state.isOpen
-        })
-    };
     getBody() {
-        if(!this.state.isOpen) return null;
-        const {article} = this.props;
+        const {article, isOpen} = this.props;
+        if(!isOpen) return null;
         return (
             <section className="Article__section">
                 <p>{article.text}</p>
@@ -39,15 +27,18 @@ export default class Article extends Component {
     };
 
     render() {
-        const {article} = this.props;
-        const {isOpen} = this.state;
+        const {article, isOpen, toggleOpen} = this.props;
 
         return (
             <Fragment>
                 <h3 className="Article__title">{article.title}</h3>
-                <button className="button button--primary" onClick = {this.toggleOpen}>{isOpen ? 'Close' : 'Open'}</button>
+                <button className="button button--primary" onClick = {toggleOpen}>
+                    {isOpen ? 'Close' : 'Open'}
+                </button>
                 {this.getBody()}
             </Fragment>
         )
     }
 }
+
+export default toggleOpen(Article);

@@ -55,43 +55,7 @@ export const articles = [
         "phone": "+1 (992) 449-2559",
         "address": "417 Seagate Avenue, Sardis, South Dakota, 8124",
         "picture": "http://via.placeholder.com/250x250",
-        "comments": [
-            {
-                "id": "5b2ca4819ffdde8a4e234965",
-                "user": "Emerson Collier",
-                "text": "Fugiat mollit duis laboris ipsum labore pariatur sit magna consectetur aute sunt consectetur. Sint do esse fugiat cupidatat Lorem incididunt eu cillum cupidatat. Exercitation incididunt nisi quis cillum nisi ea. Id minim minim eu et ex mollit esse. Voluptate id aliqua ut eu nostrud in ullamco irure incididunt officia qui ea ea. Do fugiat commodo in sint tempor cupidatat incididunt ad reprehenderit quis consequat esse pariatur cupidatat.",
-                "date": "2017-05-24T09:27:16 -03:00",
-                "ava": "http://via.placeholder.com/100x100"
-            },
-            {
-                "id": "5b2ca481b011ddddd0864e26",
-                "user": "Swanson Stafford",
-                "text": "Irure anim ea ut laboris veniam laboris minim. Cupidatat laborum do eiusmod veniam laborum ipsum ullamco voluptate. Nulla incididunt ad laboris et exercitation. Cupidatat non occaecat do cillum Lorem sunt eiusmod veniam deserunt sit consequat veniam. Dolore adipisicing labore aute sunt laboris cupidatat occaecat nostrud ullamco. Voluptate cillum id voluptate tempor esse minim tempor aliqua sit voluptate minim aute. Duis ipsum commodo incididunt velit eiusmod laborum Lorem occaecat est minim.",
-                "date": "2016-08-30T12:19:15 -03:00",
-                "ava": "http://via.placeholder.com/100x100"
-            },
-            {
-                "id": "5b2ca4814bd14eeea3d0ba78",
-                "user": "Elnora Oliver",
-                "text": "Est velit do id adipisicing laboris non dolor labore consectetur mollit duis sint. Excepteur voluptate labore nostrud reprehenderit voluptate. Culpa in eu proident culpa qui tempor culpa in minim officia. Nulla sit in et proident ad ex occaecat id occaecat consectetur aliquip fugiat laborum. Eiusmod id exercitation sint aliquip aute minim do id qui occaecat. Ut tempor ad aliquip exercitation duis incididunt cupidatat enim.",
-                "date": "2016-12-16T06:37:29 -03:00",
-                "ava": "http://via.placeholder.com/100x100"
-            },
-            {
-                "id": "5b2ca481540c6a06722fe214",
-                "user": "Sylvia Mccarthy",
-                "text": "Duis occaecat reprehenderit officia do duis laboris mollit magna excepteur fugiat. Mollit sint do minim est nulla irure adipisicing labore commodo culpa aliqua eiusmod labore. Esse Lorem exercitation deserunt ad magna mollit magna labore id exercitation aliqua occaecat nulla cillum. Amet ipsum quis nostrud officia eu est id. Qui Lorem nisi nisi id dolore. Nisi ullamco enim esse consequat pariatur excepteur culpa tempor anim labore irure incididunt.",
-                "date": "2017-05-26T09:04:36 -03:00",
-                "ava": "http://via.placeholder.com/100x100"
-            },
-            {
-                "id": "5b2ca4812ae0ba3655c75683",
-                "user": "Moss Mitchell",
-                "text": "Esse excepteur sint aliqua est quis laborum id. Esse officia labore pariatur velit id ea cupidatat est. Quis eu deserunt incididunt enim proident incididunt quis elit ullamco incididunt commodo. Tempor ut laborum eu velit nulla laborum exercitation consectetur qui reprehenderit esse dolore velit adipisicing.",
-                "date": "2014-03-13T06:27:19 -04:00",
-                "ava": "http://via.placeholder.com/100x100"
-            }
-        ]
+        "comments": []
     },
     {
         "id": "5b2ca481818c4cef8c4b27f9",
@@ -149,7 +113,43 @@ export const articles = [
         "phone": "+1 (827) 467-2733",
         "address": "284 Polar Street, Jardine, District Of Columbia, 8485",
         "picture": "http://via.placeholder.com/250x250",
-        "comments": []
+        "comments": [
+            {
+                "id": "5b2ca4819ffdde8a4e234965",
+                "user": "Emerson Collier",
+                "text": "Fugiat mollit duis laboris ipsum labore pariatur sit magna consectetur aute sunt consectetur. Sint do esse fugiat cupidatat Lorem incididunt eu cillum cupidatat. Exercitation incididunt nisi quis cillum nisi ea. Id minim minim eu et ex mollit esse. Voluptate id aliqua ut eu nostrud in ullamco irure incididunt officia qui ea ea. Do fugiat commodo in sint tempor cupidatat incididunt ad reprehenderit quis consequat esse pariatur cupidatat.",
+                "date": "2017-05-24T09:27:16 -03:00",
+                "ava": "http://via.placeholder.com/100x100"
+            },
+            {
+                "id": "5b2ca481b011ddddd0864e26",
+                "user": "Swanson Stafford",
+                "text": "Irure anim ea ut laboris veniam laboris minim. Cupidatat laborum do eiusmod veniam laborum ipsum ullamco voluptate. Nulla incididunt ad laboris et exercitation. Cupidatat non occaecat do cillum Lorem sunt eiusmod veniam deserunt sit consequat veniam. Dolore adipisicing labore aute sunt laboris cupidatat occaecat nostrud ullamco. Voluptate cillum id voluptate tempor esse minim tempor aliqua sit voluptate minim aute. Duis ipsum commodo incididunt velit eiusmod laborum Lorem occaecat est minim.",
+                "date": "2016-08-30T12:19:15 -03:00",
+                "ava": "http://via.placeholder.com/100x100"
+            },
+            {
+                "id": "5b2ca4814bd14eeea3d0ba78",
+                "user": "Elnora Oliver",
+                "text": "Est velit do id adipisicing laboris non dolor labore consectetur mollit duis sint. Excepteur voluptate labore nostrud reprehenderit voluptate. Culpa in eu proident culpa qui tempor culpa in minim officia. Nulla sit in et proident ad ex occaecat id occaecat consectetur aliquip fugiat laborum. Eiusmod id exercitation sint aliquip aute minim do id qui occaecat. Ut tempor ad aliquip exercitation duis incididunt cupidatat enim.",
+                "date": "2016-12-16T06:37:29 -03:00",
+                "ava": "http://via.placeholder.com/100x100"
+            },
+            {
+                "id": "5b2ca481540c6a06722fe214",
+                "user": "Sylvia Mccarthy",
+                "text": "Duis occaecat reprehenderit officia do duis laboris mollit magna excepteur fugiat. Mollit sint do minim est nulla irure adipisicing labore commodo culpa aliqua eiusmod labore. Esse Lorem exercitation deserunt ad magna mollit magna labore id exercitation aliqua occaecat nulla cillum. Amet ipsum quis nostrud officia eu est id. Qui Lorem nisi nisi id dolore. Nisi ullamco enim esse consequat pariatur excepteur culpa tempor anim labore irure incididunt.",
+                "date": "2017-05-26T09:04:36 -03:00",
+                "ava": "http://via.placeholder.com/100x100"
+            },
+            {
+                "id": "5b2ca4812ae0ba3655c75683",
+                "user": "Moss Mitchell",
+                "text": "Esse excepteur sint aliqua est quis laborum id. Esse officia labore pariatur velit id ea cupidatat est. Quis eu deserunt incididunt enim proident incididunt quis elit ullamco incididunt commodo. Tempor ut laborum eu velit nulla laborum exercitation consectetur qui reprehenderit esse dolore velit adipisicing.",
+                "date": "2014-03-13T06:27:19 -04:00",
+                "ava": "http://via.placeholder.com/100x100"
+            }
+        ]
     },
     {
         "id": "5b2ca481237136a83776fdda",
