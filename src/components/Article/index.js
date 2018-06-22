@@ -1,11 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import toggleOpen from '../../decorators/toggleOpen';
 import CommentList from '../CommentList/index';
 
 import './style.css';
 
-class Article extends Component {
+export default class Article extends Component {
     static propTypes = {
         article: PropTypes.shape({
             id: PropTypes.string.isRequired,
@@ -40,5 +39,3 @@ class Article extends Component {
         )
     }
 }
-
-export default toggleOpen(Article);
