@@ -4,6 +4,10 @@ import Comment from '../Comment';
 import './style.css';
 
 export default class CommentList extends Component {
+    static defaultProps = {
+        comments: []
+    };
+
     state = {
         isOpen: false
     };
@@ -12,7 +16,7 @@ export default class CommentList extends Component {
         if (!this.state.isOpen) return null;
 
         const {comments} = this.props;
-        if (!comments || !comments.length) return <p>No comments yet</p>;
+        if (!comments.length) return <p>No comments yet</p>;
 
         return (
             <ul className="CommentList">

@@ -149,43 +149,7 @@ export const articles = [
         "phone": "+1 (827) 467-2733",
         "address": "284 Polar Street, Jardine, District Of Columbia, 8485",
         "picture": "http://via.placeholder.com/250x250",
-        "comments": [
-            {
-                "id": "5b2ca4813c8c9812962ca52d",
-                "user": "Mejia Yates",
-                "text": "Ea proident enim dolore cillum sunt esse id aliquip excepteur. Labore cillum officia excepteur deserunt eiusmod sit aute in veniam laboris culpa. Amet nulla Lorem nisi ex aliqua culpa nulla nisi. Excepteur qui duis sint exercitation ipsum ad est anim enim aute. Deserunt ad elit laboris proident incididunt aliquip nostrud adipisicing. Sunt eu velit ex aute adipisicing laborum id est. Et sint duis sit Lorem sunt minim pariatur velit incididunt labore voluptate.",
-                "date": "2016-10-28T06:24:35 -03:00",
-                "ava": "http://via.placeholder.com/100x100"
-            },
-            {
-                "id": "5b2ca481d37820c63229e1a4",
-                "user": "Beth Banks",
-                "text": "Laborum velit et cupidatat esse veniam sint ad ipsum ullamco amet velit. Consequat proident cillum laborum labore nisi occaecat elit in fugiat tempor elit velit eiusmod. Est dolor aute eiusmod qui dolore eu in sit enim laborum deserunt. Qui amet irure consectetur ut ipsum. Id consectetur nisi est aute. Laboris ex dolore deserunt nulla cillum labore eu adipisicing quis cupidatat ut et ullamco.",
-                "date": "2017-06-01T08:01:34 -03:00",
-                "ava": "http://via.placeholder.com/100x100"
-            },
-            {
-                "id": "5b2ca481f71aed3b19a6f21b",
-                "user": "Olga Reynolds",
-                "text": "Incididunt excepteur proident quis magna dolor laborum eiusmod duis sint consectetur ex. Cillum commodo fugiat est dolore sunt proident duis Lorem aute laborum mollit duis aliquip aute. Mollit excepteur fugiat eu eu incididunt anim consequat laborum deserunt qui dolore sint. Magna voluptate qui labore exercitation enim aute ullamco ea id cupidatat. Elit qui do enim ipsum velit anim laboris excepteur et nostrud non sint commodo dolore. Aute elit reprehenderit elit duis sunt ex laboris ea proident eu.",
-                "date": "2017-08-28T02:29:03 -03:00",
-                "ava": "http://via.placeholder.com/100x100"
-            },
-            {
-                "id": "5b2ca481b97021170be2020c",
-                "user": "Norman Davenport",
-                "text": "Veniam officia commodo commodo mollit aute incididunt proident cillum exercitation veniam ad est. Mollit fugiat magna do proident voluptate nostrud ea id. Dolore incididunt tempor do proident ad consequat nostrud cupidatat velit tempor incididunt. Amet id occaecat ad consectetur nulla aliqua id enim esse. Occaecat magna quis duis dolore dolore enim et pariatur culpa nulla sunt duis culpa. Consectetur amet deserunt commodo officia ullamco labore tempor commodo mollit esse aute adipisicing dolore.",
-                "date": "2017-05-22T06:10:58 -03:00",
-                "ava": "http://via.placeholder.com/100x100"
-            },
-            {
-                "id": "5b2ca481ad7f29e270dc41e4",
-                "user": "Adkins Hickman",
-                "text": "Est aliqua do tempor officia dolore officia nulla duis minim consequat ea. Quis consectetur ipsum duis ullamco cillum culpa. Ipsum mollit excepteur excepteur veniam ea mollit incididunt dolor nulla enim aliqua officia deserunt. Nulla anim incididunt nisi laboris commodo sit do officia occaecat. Ipsum laborum sunt reprehenderit pariatur aute eu adipisicing ullamco. In id Lorem aute culpa proident amet. Labore adipisicing dolore deserunt ad sit.",
-                "date": "2017-11-28T09:37:13 -03:00",
-                "ava": "http://via.placeholder.com/100x100"
-            }
-        ]
+        "comments": []
     },
     {
         "id": "5b2ca481237136a83776fdda",

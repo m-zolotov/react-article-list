@@ -1,9 +1,19 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 import CommentList from '../CommentList';
 
 import './style.css';
 
 export default class Article extends Component {
+    static propTypes = {
+        article: PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            title: PropTypes.string.isRequired,
+            text: PropTypes.string.isRequired,
+            comments: PropTypes.array
+        }).isRequired
+    };
+
     constructor(props){
         super(props);
 

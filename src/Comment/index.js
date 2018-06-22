@@ -1,5 +1,14 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import './style.css';
+
+Comment.propTypes = {
+    comment: PropTypes.shape({
+        user: PropTypes.string.isRequired,
+        text: PropTypes.string.isRequired,
+        date: PropTypes.string
+    }).isRequired
+};
 
 export default function Comment({comment}) {
     return (
