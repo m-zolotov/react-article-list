@@ -1,4 +1,15 @@
+@import "../style/constants";
+
 .ArticleList {
+  margin: 0;
   padding: 0;
   list-style: none;
+  &__item {
+    padding: 1rem 1rem 0;
+    border-radius: 4px;
+    background: $gray-200;
+    & + & {
+      margin-top: 1rem;
+    }
+  }
 }

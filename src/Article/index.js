@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from 'react';
+import Comment from '../Comment';
+
 import './style.css';
 
 export default class Article extends Component {
@@ -16,7 +18,7 @@ export default class Article extends Component {
     getBody() {
         if(!this.state.isOpen) return null;
         const {article} = this.props;
-        return <section>{article.text}</section>
+        return <section className="Article__section">{article.text}</section>
     };
 
     render() {
@@ -28,6 +30,8 @@ export default class Article extends Component {
                 <h3 className="Article__title">{article.title}</h3>
                 <button className="button" onClick = {this.toggleOpen}>{isOpen ? 'Close' : 'Open'}</button>
                 {this.getBody()}
+
+                <Comment comment={article.comments[0]} />
             </Fragment>
         )
     }
