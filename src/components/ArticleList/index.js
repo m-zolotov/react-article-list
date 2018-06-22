@@ -8,15 +8,15 @@ export default class ArticleList extends Component {
         openArticleID: null
     };
 
-    toggleOpenArticle (openArticleID) {
-        this.setState({openArticleID});
+    toggleOpenArticle = openArticleID => ev => {
+        this.setState({ openArticleID });
     };
 
     render () {
         const articleElements = this.props.articles.map((article) => <li key={article.id} className="ArticleList__item">
             <Article article={article}
                      isOpen={article.id === this.state.openArticleID}
-                     toggleOpen={this.toggleOpenArticle.bind(this, article.id)} />
+                     toggleOpen={this.toggleOpenArticle(article.id)} />
         </li>);
 
         return (
