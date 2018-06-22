@@ -6,49 +6,36 @@ import './style.css';
 export default class Article extends Component {
     constructor(props){
         super(props);
+
         this.state = {
-            isOpenBody: false,
-            isOpenComment: false
+            isOpen: false,
         }
     };
-    toggleOpenBody = () => {
+    toggleOpen = (ev) => {
+        ev.preventDefault();
         this.setState({
-            isOpenBody: !this.state.isOpenBody
-        })
-    };
-    toggleOpenComment = () => {
-        this.setState({
-            isOpenComment: !this.state.isOpenComment
+            isOpen: !this.state.isOpen
         })
     };
     getBody() {
-        if(!this.state.isOpenBody) return null;
+        if(!this.state.isOpen) return null;
         const {article} = this.props;
-        const {isOpenComment} = this.state;
         return (
             <section className="Article__section">
                 <p>{article.text}</p>
-                <button className="button button--light" onClick = {this.toggleOpenComment}>{isOpenComment ? 'Close comments' : 'Open comments'}</button>
-                {this.getComment()}
+                <CommentList comments={article.comments} />
             </section>
         )
     };
-    getComment() {
-        if(!this.state.isOpenComment) return null;
-        const {article} = this.props;
-        return (
-            <CommentList comments={article.comments} />
-        )
-    }
 
     render() {
         const {article} = this.props;
-        const {isOpenBody} = this.state;
+        const {isOpen} = this.state;
 
         return (
             <Fragment>
                 <h3 className="Article__title">{article.title}</h3>
-                <button className="button button--primary" onClick = {this.toggleOpenBody}>{isOpenBody ? 'Close' : 'Open'}</button>
+                <button className="button button--primary" onClick = {this.toggleOpen}>{isOpen ? 'Close' : 'Open'}</button>
                 {this.getBody()}
             </Fragment>
         )

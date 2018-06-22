@@ -1,5 +1,10 @@
 @import "../style/constants";
 
 .Comment {
-
+  &__title {
+    margin-bottom: .75rem;
+  }
+  &__section {
+    margin-bottom: 0;
+  }
 }
