@@ -1,1 +1,14 @@
 @import "../style/constants";
+
+.CommentList {
+  list-style: none;
+  padding: 0;
+  &__item {
+    padding: .5rem;
+    border-radius: 4px;
+    background: $gray-100;
+    & + & {
+      margin-top: .5rem;
+    }
+  }
+}

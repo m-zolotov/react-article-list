@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import Comment from '../Comment';
+import CommentList from '../CommentList';
 
 import './style.css';
 
@@ -7,31 +7,49 @@ export default class Article extends Component {
     constructor(props){
         super(props);
         this.state = {
-            isOpen: false
+            isOpenBody: false,
+            isOpenComment: false
         }
     };
-    toggleOpen = () => {
+    toggleOpenBody = () => {
         this.setState({
-            isOpen: !this.state.isOpen
+            isOpenBody: !this.state.isOpenBody
+        })
+    };
+    toggleOpenComment = () => {
+        this.setState({
+            isOpenComment: !this.state.isOpenComment
         })
     };
     getBody() {
-        if(!this.state.isOpen) return null;
+        if(!this.state.isOpenBody) return null;
         const {article} = this.props;
-        return <section className="Article__section">{article.text}</section>
+        const {isOpenComment} = this.state;
+        return (
+            <section className="Article__section">
+                <p>{article.text}</p>
+                <button className="button button--light" onClick = {this.toggleOpenComment}>{isOpenComment ? 'Close comments' : 'Open comments'}</button>
+                {this.getComment()}
+            </section>
+        )
     };
+    getComment() {
+        if(!this.state.isOpenComment) return null;
+        const {article} = this.props;
+        return (
+            <CommentList comments={article.comments} />
+        )
+    }
 
     render() {
         const {article} = this.props;
-        const {isOpen} = this.state;
+        const {isOpenBody} = this.state;
 
         return (
             <Fragment>
                 <h3 className="Article__title">{article.title}</h3>
-                <button className="button" onClick = {this.toggleOpen}>{isOpen ? 'Close' : 'Open'}</button>
+                <button className="button button--primary" onClick = {this.toggleOpenBody}>{isOpenBody ? 'Close' : 'Open'}</button>
                 {this.getBody()}
-
-                <Comment comment={article.comments[0]} />
             </Fragment>
         )
     }
