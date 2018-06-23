@@ -1,16 +1,18 @@
 import React, { Component as ReactComponent } from 'react';
 
-export default (OriginalComponent) => class AccordionComponent extends ReactComponent {
+export default (Component) => class Accordion extends ReactComponent {
 
     state = {
-        openArticleID: null
+        openItemID: null
     };
 
-    accordionToggleOpen = openArticleID => ev => {
-        this.setState({ openArticleID });
+    toggleOpenItem = openItemID => ev => {
+        this.setState({
+            openItemID: openItemID === this.state.openItemID ? null : openItemID
+        });
     };
 
     render() {
-        return <OriginalComponent {...this.props} {...this.state} accordionToggleOpen={this.accordionToggleOpen} />
+        return <Component {...this.props} {...this.state} toggleOpenItem={this.toggleOpenItem} />
     }
 }
