@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import CommentList from '../CommentList/index';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import './style.css';
 
@@ -34,7 +35,12 @@ export default class Article extends Component {
                 <button className="button button--primary" onClick = {toggleOpen}>
                     {isOpen ? 'Close' : 'Open'}
                 </button>
-                {this.getBody()}
+                <ReactCSSTransitionGroup
+                    transitionName="example"
+                    transitionEnterTimeout={300}
+                    transitionLeaveTimeout={500}>
+                    {this.getBody()}
+                </ReactCSSTransitionGroup>
             </Fragment>
         )
     }
