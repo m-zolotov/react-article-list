@@ -1,7 +1,6 @@
 import React, { Component as ReactComponent } from 'react';
 
 export default (Component) => class Accordion extends ReactComponent {
-
     state = {
         openItemID: null
     };
