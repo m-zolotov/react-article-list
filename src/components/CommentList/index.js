@@ -17,11 +17,9 @@ function getBody({comments, isOpen}) {
     if (!isOpen) return null;
     if (!comments.length) return <p>No comments yet</p>;
 
-    return (
-        <ul className="CommentList">
-            {comments.map(comment => <li key={comment.id} className="CommentList__item"><Comment comment={comment} /></li>)}
-        </ul>
-    )
+    return <ul className="CommentList">
+        {comments.map(comment => <li key={comment.id} className="CommentList__item"><Comment comment={comment}/></li>)}
+    </ul>
 }
 
 function CommentList ({comments = [], isOpen, toggleOpen}) {

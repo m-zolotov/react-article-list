@@ -1,12 +1,12 @@
 import React, { Component as ReactComponent } from 'react';
 
-export default (Component) => class ToggleComponent extends ReactComponent {
+export default (Component) => class ValidForm extends ReactComponent {
 
     state = {
-        isOpen: false,
+        isValid: true
     };
 
-    toggleOpen = (ev) => {
+    validInput = (ev) => {
         ev && ev.preventDefault && ev.preventDefault();
         this.setState({
             isOpen: !this.state.isOpen
@@ -14,6 +14,6 @@ export default (Component) => class ToggleComponent extends ReactComponent {
     };
 
     render() {
-        return <Component {...this.props} {...this.state} toggleOpen={this.toggleOpen} />
+        return <Component {...this.props} {...this.state} onChange={this.validInput} />
     }
 }

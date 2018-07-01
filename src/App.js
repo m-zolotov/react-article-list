@@ -60,7 +60,7 @@ class App extends Component {
                             ${to.toLocaleDateString()}`}{' '}
                             {from &&
                             to && (
-                                <button className="link" onClick={this.handleResetClick}>
+                                <button className="link button button--primary filter-form-day-picker__btn" onClick={this.handleResetClick}>
                                     Reset
                                 </button>
                             )}
