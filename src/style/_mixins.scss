@@ -1,0 +1,31 @@
+@import "constants";
+
+// Button
+@mixin button($text-color: $gray-800, $bg-color: $gray-100, $border: none) {
+  min-width: 120px;
+  height: 30px;
+  margin-bottom: 1rem;
+  padding: 3px 10px;
+  border: $border;
+  border-radius: 2px;
+  color: $text-color;
+  font-weight: 300;
+  background-color: $bg-color;
+  transition: color .3s, background-color .3s;
+  cursor: pointer;
+  user-select: none;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: darken($bg-color, 5%);
+  }
+  & + & {
+    margin-left: 1rem;
+  }
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+    color: darken($text-color, 5%);
+    background-color: $bg-color;
+  }
+}

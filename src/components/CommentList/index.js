@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import toggleOpen from '../../decorators/toggleOpen';
 import Comment from '../Comment';
+import CommentForm from '../CommentForm';
 
 import './style.css';
 
@@ -17,9 +18,14 @@ function getBody({comments, isOpen}) {
     if (!isOpen) return null;
     if (!comments.length) return <p>No comments yet</p>;
 
-    return <ul className="CommentList">
-        {comments.map(comment => <li key={comment.id} className="CommentList__item"><Comment comment={comment}/></li>)}
-    </ul>
+    return (
+        <Fragment>
+            <ul className="CommentList">
+                {comments.map(comment => <li key={comment.id} className="CommentList__item"><Comment comment={comment}/></li>)}
+            </ul>
+            <CommentForm />
+        </Fragment>
+    )
 }
 
 function CommentList ({comments = [], isOpen, toggleOpen}) {
