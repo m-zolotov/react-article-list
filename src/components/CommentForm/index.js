@@ -13,7 +13,7 @@ const limits = {
     }
 };
 
-export default class CommentForm extends Component {
+class CommentForm extends Component {
     state = {
         user: '',
         text: ''
@@ -59,3 +59,5 @@ export default class CommentForm extends Component {
         )
     }
 }
+
+export default CommentForm;

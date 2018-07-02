@@ -38,7 +38,7 @@ export default class Article extends Component {
                 <ReactCSSTransitionGroup
                     transitionName="example"
                     transitionEnterTimeout={300}
-                    transitionLeaveTimeout={500}>
+                    transitionLeaveTimeout={50}>
                     {this.getBody()}
                 </ReactCSSTransitionGroup>
             </Fragment>

@@ -16,14 +16,13 @@ CommentList.defaultProps = {
 
 function getBody({comments, isOpen}) {
     if (!isOpen) return null;
-    if (!comments.length) return <p>No comments yet</p>;
+    if (!comments.length) return <p className="CommentList__hint">No comments yet</p>;
 
     return (
         <Fragment>
             <ul className="CommentList">
                 {comments.map(comment => <li key={comment.id} className="CommentList__item"><Comment comment={comment}/></li>)}
             </ul>
-            <CommentForm />
         </Fragment>
     )
 }
@@ -34,6 +33,7 @@ function CommentList ({comments = [], isOpen, toggleOpen}) {
         <Fragment>
             <button className="button button--light" onClick={toggleOpen}>{text}</button>
             {getBody({comments, isOpen})}
+            <CommentForm />
         </Fragment>
     )
 }

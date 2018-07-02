@@ -3,7 +3,7 @@
 .CommentList {
   list-style: none;
   padding: 0;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
   &__item {
     padding: .5rem;
     border-radius: 4px;
@@ -11,5 +11,11 @@
     & + & {
       margin-top: .5rem;
     }
+  }
+  &__hint {
+    margin: 1rem 0 0;
+    padding: .5rem;
+    border-radius: 4px;
+    background: $gray-100;
   }
 }
