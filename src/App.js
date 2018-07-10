@@ -10,7 +10,7 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <Counter></Counter>
+                <Counter />
                 <Filter articles={articles} />
                 <ArticleList articles={articles} />
             </div>
