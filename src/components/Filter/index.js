@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
 import DayPicker, { DateUtils } from 'react-day-picker';
+import {connect} from 'react-redux';
 
 import 'react-select/dist/react-select.css';
 import 'react-day-picker/lib/style.css';
 import './style.css';
+import accordion from "../../decorators/accordion";
 
 
 class Filter extends Component {
@@ -76,4 +78,6 @@ class Filter extends Component {
     }
 }
 
-export default Filter;
+export default connect(state => ({
+    articles: state.articles
+}))(Filter);
