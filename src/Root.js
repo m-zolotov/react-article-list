@@ -7,10 +7,10 @@ import store from './store';
 Root.propTypes = {
 };
 
-export default function Root(props) {
+export default function Root() {
     return (
         <Provider store={store}>
-            <App {...props}/>
+            <App />
         </Provider>
     )
     

@@ -1,11 +1,13 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 import CommentList from '../CommentList/index';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import {deleteArticle} from '../../actions/articles';
 
 import './style.css';
 
-export default class Article extends Component {
+class Article extends Component {
     static propTypes = {
         article: PropTypes.shape({
             id: PropTypes.string.isRequired,
@@ -26,6 +28,11 @@ export default class Article extends Component {
         )
     };
 
+    handleDelete = () => {
+        const {deleteArticle, article} = this.props;
+        deleteArticle(article.id);
+    };
+
     render() {
         const {article, isOpen, toggleOpen} = this.props;
 
@@ -35,6 +42,7 @@ export default class Article extends Component {
                 <button className="button button--primary" onClick = {toggleOpen}>
                     {isOpen ? 'Close' : 'Open'}
                 </button>
+                <button className="button button--primary" onClick={this.handleDelete}>Delete me</button>
                 <ReactCSSTransitionGroup
                     transitionName="example"
                     transitionEnterTimeout={300}
@@ -45,3 +53,5 @@ export default class Article extends Component {
         )
     }
 }
+
+export default connect(null, {deleteArticle})(Article)
