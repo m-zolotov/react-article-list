@@ -1,45 +1,37 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Select from 'react-select';
 import DayPicker, { DateUtils } from 'react-day-picker';
 import {connect} from 'react-redux';
+import {changeDateRange, changeSelection} from '../../actions';
 
 import 'react-select/dist/react-select.css';
 import 'react-day-picker/lib/style.css';
 import './style.css';
-import accordion from "../../decorators/accordion";
 
 
 class Filter extends Component {
+    static propTypes = {
+        articles: PropTypes.array.isRequired
+    };
+
     static defaultProps = {
         numberOfMonths: 2,
     };
 
-    state = {
-        selection: null
-    };
-
-    static getInitialState() {
-        return {
-            from: undefined,
-            to: undefined,
-        };
-    }
-
     handleDayClick = (day) => {
-        const range = DateUtils.addDayToRange(day, this.state);
-        this.setState(range);
+        const {changeDateRange, range} = this.props;
+        changeDateRange(DateUtils.addDayToRange(day, range));
     };
 
-    handleResetClick() {
-        this.setState(Filter.getInitialState());
-    }
-
-    changeSelection = selection => this.setState({selection});
+    handleChangeSelect = selected => this.props.changeSelection(selected.map(option => option.value));
 
     render() {
-        const { from, to } = this.state;
-        const { articles } = this.props;
-        const modifiers = { start: from, end: to };
+        const { articles, selected } = this.props;
+        const { from, to } = this.props.range;
+        const selectedRange = from && to && `${from.toDateString()} - ${to.toDateString()}`;
+
+
         const options = articles.map(article => ({
             label: article.title,
             value: article.id
@@ -48,30 +40,21 @@ class Filter extends Component {
         return (
             <form action="" className="filter-form">
                 <div className="filter-form-select">
-                    <Select options={options} value={this.state.selection} onChange={this.changeSelection} />
+                    <Select
+                        options={options}
+                        value={selected}
+                        onChange={this.handleChangeSelect}
+                        multi
+                    />
                 </div>
                 <div className="filter-form-day-picker">
-                    <p className="filter-form-day-picker__title">
-                        {!from && !to && 'Please select the first day.'}
-                        {from && !to && 'Please select the last day.'}
-                        {from &&
-                        to &&
-                        `Selected from ${from.toLocaleDateString()} to
-                            ${to.toLocaleDateString()}`}{' '}
-                        {from &&
-                        to && (
-                            <button className="link button button--primary filter-form-day-picker__btn" onClick={this.handleResetClick}>
-                                Reset
-                            </button>
-                        )}
-                    </p>
                     <DayPicker
                         className="Selectable"
                         numberOfMonths={this.props.numberOfMonths}
-                        selectedDays={[from, { from, to }]}
-                        modifiers={modifiers}
+                        selectedDays={day => DateUtils.isDayInRange(day, { from, to })}
                         onDayClick={this.handleDayClick}
                     />
+                    {selectedRange}
                 </div>
             </form>
         )
@@ -79,5 +62,7 @@ class Filter extends Component {
 }
 
 export default connect(state => ({
-    articles: state.articles
-}))(Filter);
+    articles: state.articles,
+    range: state.filters.dateRange,
+    selected: state.filters.selected
+}), {changeDateRange, changeSelection})(Filter);

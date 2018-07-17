@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {increment} from '../../actions/counter';
+import {increment} from '../../actions';
 
 class Counter extends Component {
     static propTypes = {
@@ -9,7 +9,6 @@ class Counter extends Component {
     };
 
     handleIncrement = () => {
-        console.log('---', 'Incrementing');
         this.props.increment()
     };
 
