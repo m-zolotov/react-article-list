@@ -5,7 +5,6 @@ import Article from '../Article';
 import {connect} from 'react-redux';
 
 import './style.css';
-import filters from "../../reducer/filters";
 
 class ArticleList extends Component {
     static propTypes = {

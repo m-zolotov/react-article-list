@@ -5,8 +5,6 @@ export default (count = 0, action) => {
 
     switch (type) {
         case INCREMENT: return count + 1;
-        default:
+        default: return count
     }
-
-    return count
 }
