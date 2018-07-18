@@ -7,7 +7,10 @@ import CommentForm from '../CommentForm';
 import './style.css';
 
 CommentList.propTypes = {
-    comments: PropTypes.array.isRequired
+    comments: PropTypes.array.isRequired,
+    // From toggleOpen decorator
+    isOpen: PropTypes.bool,
+    toggleOpen: PropTypes.func
 };
 
 CommentList.defaultProps = {
@@ -21,7 +24,7 @@ function getBody({comments, isOpen}) {
     return (
         <Fragment>
             <ul className="CommentList">
-                {comments.map(comment => <li key={comment.id} className="CommentList__item"><Comment comment={comment}/></li>)}
+                {comments.map(id => <li key={id} className="CommentList__item"><Comment id={id}/></li>)}
             </ul>
         </Fragment>
     )
