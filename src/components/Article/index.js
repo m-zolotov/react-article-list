@@ -17,13 +17,17 @@ class Article extends Component {
         }).isRequired
     };
 
+    state = {
+        updateIndex: 0,
+    };
+
     getBody() {
         const {article, isOpen} = this.props;
         if(!isOpen) return null;
         return (
             <section className="Article__section">
                 <p>{article.text}</p>
-                <CommentList comments={article.comments} />
+                <CommentList article = {article} ref = {this.setCommentsRef} key={this.state.updateIndex} />
             </section>
         )
     };
@@ -31,6 +35,10 @@ class Article extends Component {
     handleDelete = () => {
         const {deleteArticle, article} = this.props;
         deleteArticle(article.id);
+    };
+
+    setCommentsRef = ref => {
+        this.comments = ref
     };
 
     render() {

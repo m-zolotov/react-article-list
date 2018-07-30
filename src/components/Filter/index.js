@@ -4,6 +4,7 @@ import Select from 'react-select';
 import DayPicker, { DateUtils } from 'react-day-picker';
 import {connect} from 'react-redux';
 import {changeDateRange, changeSelection} from '../../actions';
+import {mapToArr} from "../../helpers";
 
 import 'react-select/dist/react-select.css';
 import 'react-day-picker/lib/style.css';
@@ -62,7 +63,7 @@ class Filter extends Component {
 }
 
 export default connect(state => ({
-    articles: state.articles,
+    articles: mapToArr(state.articles),
     range: state.filters.dateRange,
     selected: state.filters.selected
 }), {changeDateRange, changeSelection})(Filter);

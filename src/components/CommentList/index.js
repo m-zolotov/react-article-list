@@ -17,26 +17,31 @@ CommentList.defaultProps = {
     comments: []
 };
 
-function getBody({comments, isOpen}) {
+function getBody({article: {comments = [], id}, isOpen}) {
     if (!isOpen) return null;
-    if (!comments.length) return <p className="CommentList__hint">No comments yet</p>;
+    if (!comments.length) return (
+        <Fragment>
+            <p className="CommentList__hint">No comments yet</p>
+            <CommentForm articleId = {id} />
+        </Fragment>
+    );
 
     return (
         <Fragment>
             <ul className="CommentList">
                 {comments.map(id => <li key={id} className="CommentList__item"><Comment id={id}/></li>)}
             </ul>
+            <CommentForm articleId = {id} />
         </Fragment>
     )
 }
 
-function CommentList ({comments = [], isOpen, toggleOpen}) {
+function CommentList ({article, isOpen, toggleOpen}) {
     const text = isOpen ? 'Hide comments' : 'Show comments';
     return (
         <Fragment>
             <button className="button button--light" onClick={toggleOpen}>{text}</button>
-            {getBody({comments, isOpen})}
-            <CommentForm />
+            {getBody({article, isOpen})}
         </Fragment>
     )
 }
