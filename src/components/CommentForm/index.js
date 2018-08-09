@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {addComment} from '../../actions'
-import logo from '../../svg/logo.svg';
+import {addComment} from '../../actions';
 
 import './style.css';
 
@@ -51,9 +50,6 @@ class CommentForm extends Component {
     render() {
         return (
             <form className="CommentForm" onSubmit={this.handleSubmit}>
-                <div className="CommentForm__logo-wrap">
-                    <img src={logo} className="CommentForm__logo" alt="logo" />
-                </div>
                 <p className="CommentForm__title heading--line">Написать свой комментарий</p>
                 <label htmlFor="" className="CommentForm__label">
                     <input type="text" value={this.state.user}
