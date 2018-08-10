@@ -1,4 +1,4 @@
-let path = require('path');
+var path = require('path')
 
 module.exports = {
     devtool: 'source-map',
@@ -6,8 +6,8 @@ module.exports = {
         './src/index.js'
     ],
     output: {
-        path: path.join(__dirname, 'public'),
-        filename: '../build/bundle.js',
+        path: path.join(__dirname, 'build'),
+        filename: 'bundle.js',
         publicPath: '/static/'
     },
     devServer: {
@@ -30,4 +30,4 @@ module.exports = {
             }
         ]
     }
-};
+}
