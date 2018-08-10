@@ -1,5 +1,6 @@
 import {
     INCREMENT,
+    LOAD_ALL_ARTICLES,
     CHANGE_DATE_RANGE,
     CHANGE_SELECTION,
     DELETE_ARTICLE,
@@ -38,5 +39,12 @@ export function addComment(comment, articleId) {
         type: ADD_COMMENT,
         payload: {comment, articleId},
         generateId: true
+    }
+}
+
+export function loadAllArticles() {
+    return {
+        type: LOAD_ALL_ARTICLES,
+        callAPI: '/api/article'
     }
 }
