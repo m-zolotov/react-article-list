@@ -12,7 +12,7 @@ class Article extends Component {
         article: PropTypes.shape({
             id: PropTypes.string.isRequired,
             title: PropTypes.string.isRequired,
-            text: PropTypes.string.isRequired,
+            text: PropTypes.string,
             comments: PropTypes.array
         }).isRequired
     };
