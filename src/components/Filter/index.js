@@ -63,7 +63,7 @@ class Filter extends Component {
 }
 
 export default connect(state => ({
-    articles: mapToArr(state.articles),
+    articles: mapToArr(state.articles.entities),
     range: state.filters.dateRange,
     selected: state.filters.selected
 }), {changeDateRange, changeSelection})(Filter);
