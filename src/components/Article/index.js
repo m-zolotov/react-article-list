@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import CommentList from '../CommentList/index';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import {deleteArticle} from '../../actions';
+import {deleteArticle, loadArticle} from '../../actions';
+import Loader from "../Loader";
 
 import './style.css';
 
@@ -21,9 +22,14 @@ class Article extends Component {
         updateIndex: 0,
     };
 
+    componentWillReceiveProps({isOpen, loadArticle, article}) {
+        if (isOpen && !article.text && !article.loading) loadArticle(article.id)// !this.props.isOpen - дополнительное отслеживание
+    };
+
     getBody() {
         const {article, isOpen} = this.props;
         if(!isOpen) return null;
+        if(article.loading) return <Loader />
         return (
             <section className="Article__section">
                 <p>{article.text}</p>
@@ -62,4 +68,4 @@ class Article extends Component {
     }
 }
 
-export default connect(null, {deleteArticle})(Article)
+export default connect(null, {deleteArticle, loadArticle})(Article)
