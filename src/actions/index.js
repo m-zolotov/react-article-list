@@ -2,6 +2,7 @@ import {
     INCREMENT,
     LOAD_ALL_ARTICLES,
     LOAD_ARTICLE,
+    LOAD_ARTICLE_COMMENTS,
     START,
     SUCCESS,
     FAIL,
@@ -50,6 +51,14 @@ export function loadAllArticles() {
     return {
         type: LOAD_ALL_ARTICLES,
         callAPI: '/api/article'
+    }
+}
+
+export function loadArticleComments(articleId) {
+    return {
+        type: LOAD_ARTICLE_COMMENTS,
+        payload: {articleId},
+        callAPI: `/api/comment?article=${articleId}`
     }
 }
 

@@ -1,24 +1,19 @@
-import React, { Fragment } from 'react';
+import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
+import Loader from '../Loader';
 import toggleOpen from '../../decorators/toggleOpen';
 import Comment from '../Comment';
 import CommentForm from '../CommentForm';
+import {loadArticleComments} from "../../actions";
+import {connect} from 'react-redux';
 
 import './style.css';
 
-CommentList.propTypes = {
-    comments: PropTypes.array.isRequired,
-    // From toggleOpen decorator
-    isOpen: PropTypes.bool,
-    toggleOpen: PropTypes.func
-};
-
-CommentList.defaultProps = {
-    comments: []
-};
-
-function getBody({article: {comments = [], id}, isOpen}) {
+function getBody({article: {comments = [], id, commentsLoaded, commentsLoading}, isOpen}) {
     if (!isOpen) return null;
+    if (commentsLoading) return <Loader />;
+    if (!commentsLoaded) return null;
+
     if (!comments.length) return (
         <Fragment>
             <p className="CommentList__hint">No comments yet</p>
@@ -36,14 +31,34 @@ function getBody({article: {comments = [], id}, isOpen}) {
     )
 }
 
-function CommentList ({article, isOpen, toggleOpen}) {
-    const text = isOpen ? 'Hide comments' : 'Show comments';
-    return (
-        <Fragment>
-            <button className="button button--light" onClick={toggleOpen}>{text}</button>
-            {getBody({article, isOpen})}
-        </Fragment>
-    )
+class CommentList extends Component {
+    static propTypes = {
+        comments: PropTypes.array.isRequired,
+        // From toggleOpen decorator
+        isOpen: PropTypes.bool,
+        toggleOpen: PropTypes.func
+    };
+
+    static defaultProps = {
+        comments: []
+    };
+
+    componentWillReceiveProps ({isOpen, article, loadArticleComments}) {
+        if (!this.props.isOpen && isOpen && !article.commentsLoading && !article.commentsLoaded) {
+            loadArticleComments(article.id)
+        }
+    }
+
+    render() {
+        const {article, isOpen, toggleOpen} = this.props;
+        const text = isOpen ? 'Hide comments' : 'Show comments';
+        return (
+            <Fragment>
+                <button className="button button--light" onClick={toggleOpen}>{text}</button>
+                {getBody({article, isOpen})}
+            </Fragment>
+        )
+    }
 }
 
-export default toggleOpen(CommentList);
+export default connect(null, {loadArticleComments})(toggleOpen(CommentList));
