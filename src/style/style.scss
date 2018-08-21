@@ -3,6 +3,34 @@
 
 .App {
   padding: 1rem;
+  &__nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+    padding: .5rem 1rem;
+    border-radius: 4px;
+    background: $gray-200;
+    &-link {
+      display: block;
+      width: 100%;
+      max-width: 300px;
+      padding: .5rem 1rem;
+      color: inherit;
+      text-align: center;
+      text-decoration: none;
+      &--active {
+        background: $gray-100;
+        border-radius: 4px;
+        &:hover,
+        &:active,
+        &:focus {
+          color: inherit;
+        }
+      }
+    }
+  }
 }
 
 .button {
