@@ -10,26 +10,32 @@ import './style.css';
 
 class Article extends Component {
     static propTypes = {
+        id: PropTypes.string.isRequired,
+        isOpen: PropTypes.bool,
+        toggleOpen: PropTypes.func,
+        // From connect
         article: PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            title: PropTypes.string.isRequired,
+            id: PropTypes.string,
+            title: PropTypes.string,
             text: PropTypes.string,
             comments: PropTypes.array
-        }).isRequired
+        })
     };
 
     state = {
         updateIndex: 0,
     };
 
-    componentWillReceiveProps({isOpen, loadArticle, article}) {
-        if (isOpen && !article.text && !article.loading) loadArticle(article.id)// !this.props.isOpen - дополнительное отслеживание
+    componentDidMount() {
+        const {loadArticle, article, id} = this.props;
+        if (!article || (!article.text && !article.loading)) loadArticle(id)// !this.props.isOpen - дополнительное отслеживание
     };
 
     getBody() {
         const {article, isOpen} = this.props;
         if(!isOpen) return null;
-        if(article.loading) return <Loader />
+        if(article.loading) return <Loader />;
+
         return (
             <section className="Article__section">
                 <p>{article.text}</p>
@@ -49,6 +55,7 @@ class Article extends Component {
 
     render() {
         const {article, isOpen, toggleOpen} = this.props;
+        if(!article) return null;
 
         return (
             <Fragment>
@@ -68,4 +75,6 @@ class Article extends Component {
     }
 }
 
-export default connect(null, {deleteArticle, loadArticle})(Article)
+export default connect((state, ownProps) => ({
+    article: state.articles.entities.get(ownProps.id)
+}), {deleteArticle, loadArticle})(Article)

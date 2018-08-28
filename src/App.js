@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Filter from './components/Filter';
-import ArticleList from './components/ArticleList';
+import Articles from './components/Routes/Articles';
 import {HashRouter as Router, Route, NavLink} from 'react-router-dom';
 import Counter from './components/Counter';
 
@@ -18,7 +18,7 @@ class App extends Component {
                     </nav>
                     <Route path="/counter" component={Counter} />
                     <Route path="/filter" component={Filter} />
-                    <Route path="/articles" component={ArticleList} />
+                    <Route path="/articles" component={Articles} />
                 </div>
             </Router>
         );
