@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Filter from './components/Filter';
 import Articles from './components/Routes/Articles';
-import {HashRouter as Router, Route, NavLink} from 'react-router-dom';
+import NewArticle from './components/Routes/NewArticle';
+import NotFound from './components/Routes/NotFound';
+import {BrowserRouter as Router, Switch, Route, NavLink} from 'react-router-dom';
 import Counter from './components/Counter';
 
 import './style/style.css';
@@ -16,9 +18,13 @@ class App extends Component {
                         <NavLink to="/filter" className="App__nav-link" activeClassName="App__nav-link--active">Filter</NavLink>
                         <NavLink to="/articles" className="App__nav-link" activeClassName="App__nav-link--active">ArticleList</NavLink>
                     </nav>
-                    <Route path="/counter" component={Counter} />
-                    <Route path="/filter" component={Filter} />
-                    <Route path="/articles" component={Articles} />
+                    <Switch>
+                        <Route path="/counter" component={Counter} />
+                        <Route path="/filter" component={Filter} />
+                        <Route path="/articles/new" component={NewArticle} />
+                        <Route path="/articles" component={Articles} />
+                        <Route path="*" component={NotFound} />
+                    </Switch>
                 </div>
             </Router>
         );
