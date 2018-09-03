@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Filter from './components/Filter';
 import Articles from './components/Routes/Articles';
 import NewArticle from './components/Routes/NewArticle';
+import CommentsPage from './components/Routes/CommentsPage';
 import NotFound from './components/Routes/NotFound';
 import {BrowserRouter as Router, Switch, Route, NavLink} from 'react-router-dom';
 import Counter from './components/Counter';
@@ -23,6 +24,7 @@ class App extends Component {
                         <Route path="/filter" component={Filter} />
                         <Route path="/articles/new" component={NewArticle} />
                         <Route path="/articles" component={Articles} />
+                        <Route path="/comments/:page" component={CommentsPage} />
                         <Route path="*" component={NotFound} />
                     </Switch>
                 </div>
