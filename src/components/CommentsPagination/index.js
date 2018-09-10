@@ -5,6 +5,8 @@ import Comment from '../Comment';
 import Loader from '../Loader';
 import {checkAndLoadCommentsForPage} from '../../actions';
 
+import './style.css';
+
 class CommentsPagination extends Component {
     componentWillMount() {
         this.props.checkAndLoadCommentsForPage(this.props.page)
@@ -37,7 +39,7 @@ class CommentsPagination extends Component {
         const {total} = this.props;
         const items = [];
         for (let i = 1; i <= Math.floor((total - 1) / 5) + 1; i++) {
-            items.push(<li key={i}><NavLink to={`/comments/${i}`} activeStyle={{color: 'red'}}>{i}</NavLink></li>)
+            items.push(<li key={i} className="PaginationList__item"><NavLink to={`/comments/${i}`} activeStyle={{color: 'red'}}>{i}</NavLink></li>)
         }
         return <ul className="PaginationList">{items}</ul>
     }

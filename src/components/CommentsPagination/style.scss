@@ -1,0 +1,14 @@
+.PaginationList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  &__item {
+    & + & {
+      margin-left: 1rem;
+    }
+  }
+}
